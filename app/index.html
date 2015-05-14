@@ -10,11 +10,15 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/pure/pure.css" />
     <!-- endbower -->
-    <!--[if lte IE 8]>
-      <link rel="stylesheet" href="bower_components/pure/grids-responsive-old-ie.css">
-    <![endif]-->
     <link rel="stylesheet" href="bower_components/pure/grids-responsive.css" />
     <!-- endbuild -->
+
+    <!--[if lte IE 8]>
+      <!-- build:css(.) styles/vendor-old-ie.css -->
+      <link rel="stylesheet" href="bower_components/pure/grids-responsive-old-ie.css">
+      <!-- endbuild -->
+    <![endif]-->
+
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->

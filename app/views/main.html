@@ -18,7 +18,7 @@
           <select ng-model="denyForward" id="denyForward">
             <option>ALLOW</option>
             <option>DROP</option>
-            <option>REJECT</option>
+            <option selected>REJECT</option>
           </select>
           forwarded packets
         </label>
@@ -58,9 +58,9 @@
       </span>
       <span class="block" ng-if="denyForward !== 'ALLOW'">
         -A FORWARD -j {{ denyForward }}
-        <span ng-if="denyForward === 'REJECT'"> --reject-with icmp-host-prohibited
-
-      </span>
+        <span ng-if="denyForward === 'REJECT'">
+          --reject-with icmp-host-prohibited
+        </span>
       </span>
     </textarea>
   </div>

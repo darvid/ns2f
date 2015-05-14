@@ -14,6 +14,10 @@
           <input id="outputDefaultDeny" ng-model="denyOutput" type="checkbox">Default deny outgoing packets
         </label>
         <br>
+        <label for="dropIcmp">
+          <input id="dropIcmp" ng-model="dropIcmp" type="checkbox">Drop ICMP timestamp requests and replies
+        </label>
+        <br>
         <label for="denyForward">
           <select ng-model="denyForward" id="denyForward">
             <option value="ALLOW">ALLOW</option>
@@ -31,6 +35,10 @@
       <span>:INPUT DROP [0:0]</span>
       <span>:FORWARD DROP [0:0]</span>
       <span>:OUTPUT DROP [0:0]</span>
+      <div ng-if="dropIcmp">
+        <span class="block">-A INPUT -p icmp --icmp-type timestamp-request -j DROP</span>
+        <span class="block">-A INPUT -p icmp --icmp-type timestamp-reply -j DROP</span>
+      </div>
       <!-- Incoming rules -->
       <span class="comment" ng-if="firewall.incoming.length">
         &num; Incoming rules

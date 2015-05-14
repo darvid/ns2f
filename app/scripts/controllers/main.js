@@ -3,6 +3,7 @@
 angular.module('projectsApp')
   .controller('MainCtrl', function($scope, $http, firewall) {
     $scope.denyOutput = true;
+    $scope.dropIcmp = true;
     $scope.denyForward = "REJECT";
     $scope.firewall = firewall;
 

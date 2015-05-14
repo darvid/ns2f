@@ -6,10 +6,11 @@ angular.module('projectsApp')
     $scope.denyForward = "REJECT";
     $scope.firewall = firewall;
 
-    $http.get('services.json').success(function(data) {
-      $scope.services = data;
-      $scope.$watch('netstat', function(data) {
-        firewall.parseNetstat(data);
-      })
+    $scope.$watch('netstat', function(data) {
+      firewall.parseNetstat(data);
     });
+
+    // $http.get('services.json').success(function(data) {
+    //   $scope.services = data;
+    // });
   });

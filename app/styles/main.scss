@@ -32,6 +32,10 @@ h3 {
   span {
     display: block;
 
+    & > span {
+      display: inline;
+    }
+
     &.comment {
       color: darkgray;
     }

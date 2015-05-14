@@ -41,10 +41,10 @@
         </span>
       </span>
       <!-- Outgoing rules -->
-      <span class="comment" ng-if="firewall.incoming.length">
+      <span class="comment" ng-if="firewall.incoming.length && denyOutput">
         &num; Outgoing rules
       </span>
-      <span class="allow" ng-repeat="service in firewall.outgoing | orderBy:'port'">
+      <span class="allow" ng-repeat="service in firewall.outgoing | orderBy:'port'" ng-if="denyOutput">
         <span ng-repeat="proto in service.protocols">
           -A OUTPUT -m {{ proto }} -p {{ proto }} --sport {{ service.port }} -j ACCEPT
         </span>
